@@ -1,0 +1,20 @@
+.contenedor {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+
+.spinner{
+  margin-left: 47vw;
+  margin-top: 33vh ;
+}
+
+.spinner-img{
+  max-width: 8vw;
+  max-height: 8vh
+}
+
+  @media (max-width: 600px) {
+    .contenedor {
+        grid-template-columns: auto
+    } 
+   }

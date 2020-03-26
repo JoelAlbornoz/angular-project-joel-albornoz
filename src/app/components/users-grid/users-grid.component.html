@@ -1,0 +1,63 @@
+<div class="d-flex justify-content-center mt-3">
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal">
+    Agregar
+  </button>
+</div>
+
+<div *ngIf='this.usersService.cargando' class="spinner">
+  <img src='../../../assets/spinner.gif' class="spinner-img"><br>
+  Cargando..
+</div>
+
+<div *ngIf='this.usersService.cargado && this.usersService.usuarios.length == 0' class="card mt-5">
+  <p class="text-center  ">No hay usuarios</p>
+</div>
+
+<div class="contenedor">
+  <div *ngFor='let user of this.usersService.usuarios;let i = index' class="container">
+    <div class="row">
+      <app-user-card [user]='user' class="mt-2 col"></app-user-card>
+    </div>
+    <div class="row justify-content-center m-3">
+      <div class="col-4">
+        <button class="btn btn-primary" style="width: 100%;" (click)='navegar(i)'>Detalle</button>
+      </div>
+      <div class="col-4">
+        <button class="btn btn-danger" style="width: 100%;" (click)='delete(i)'>X</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modal-agregar" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Agregar Usuario</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body container">
+        <div class="row" *ngFor="let item of items">
+          <input class="col form-control" type="text" placeholder={{item}}  id={{item}} [(ngModel)]="this.userToAdd[item]">
+        </div>
+        <br>
+        <strong class="row"><p class="col">Dirección:</p></strong>
+        <div class="row" *ngFor="let item of itemsAddress">
+          <input class="col form-control" type="text" placeholder={{item}}  id={{item}} [(ngModel)]="this.userToAdd.address[item]">
+        </div>
+        <strong class="row"><p class="col">Compañía:</p></strong>
+        <div class="row" *ngFor="let item of itemsCompany">
+          <input class="col form-control" type="text" placeholder={{item}}  [id]="item + 'company'" [(ngModel)]="this.userToAdd.company[item]">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" (click)='agregar()'>Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>

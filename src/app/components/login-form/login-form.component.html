@@ -1,0 +1,19 @@
+<div class="card container mt-5">
+    <div *ngIf="!this.authService.autenticado; else autenticado">
+    <form #f="ngForm" (ngSubmit)="onSubmit()" class="container card col p-5">
+        <p class="row">
+            <label class="col" style="margin: 5px;">Usuario</label>
+            <input class="col form-control" style="margin: 5px;" type="text" [(ngModel)]="user.username"
+                name='nombre' required>
+        </p>
+        <p class="row">
+            <label class="col" style="margin: 5px;">Contraseña</label>
+            <input class="col form-control" style="margin: 5px;" type="password" [(ngModel)]="user.password"
+                name='nombre' required>
+        </p>
+        <button type="submit" class="btn btn-primary mb-4">Entrar</button>
+        <div *ngIf="this.error" #errorEl  class="alert alert-danger d-flex justify-content-center">Datos Incorrectos</div>
+    </form>
+    </div>
+    <ng-template #autenticado ><div class="p-4"><p class="d-flex justify-content-center"> <strong>{{this.user.username}}</strong></p></div><button class="btn btn-primary m-4" (click)=logOut()>Log Out</button></ng-template>
+</div>

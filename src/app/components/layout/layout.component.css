@@ -1,0 +1,29 @@
+
+
+.mlayout{
+    position: absolute; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+}
+
+.nav-item{
+    margin-left: 1rem ;
+    
+}
+a{
+    width:5rem;
+    font-size: 1rem;
+}
+
+.wrapper{
+    min-height: 93vh;
+}
+
+footer{
+    height: 5vh;
+    
+   /* position: absolute;
+    height: 4vh;
+    left: 45vw;
+    top:94vh */
+}
