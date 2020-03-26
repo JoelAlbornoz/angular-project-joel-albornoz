@@ -41,6 +41,7 @@
         </button>
       </div>
       <div class="modal-body container">
+        
         <div class="row" *ngFor="let item of items">
           <input class="col form-control" type="text" placeholder={{item}}  id={{item}} [(ngModel)]="this.userToAdd[item]">
         </div>
@@ -56,7 +57,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary" (click)='agregar()'>Guardar</button>
+        <button type="button" class="btn btn-primary" (click)='agregar()' data-dismiss="modal">Guardar</button>
       </div>
     </div>
   </div>

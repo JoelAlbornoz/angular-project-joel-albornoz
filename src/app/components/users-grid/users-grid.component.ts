@@ -12,15 +12,14 @@ export class UsersGridComponent implements OnInit {
   items = ["name","username","email","phone","website"]
   itemsAddress = ["street","suite","city","zipcode"]
   itemsCompany = ["catchPhrase","name","bs"]
-  userToAdd :FullUser ;
+  userToAdd ;
+
   
   constructor(public usersService : UsersService, public router:Router) { 
     this.userToAdd = {id:0,name:"",username:"",email:"",phone:"",website:"",
     address:{street:"",suite:"",city:"",zipcode:"",geo: { lat:"",lng:""},},
     company:{catchPhrase:"",name:"",bs:""}
     }
-    
-
   }
 
   ngOnInit(): void {
@@ -36,8 +35,14 @@ export class UsersGridComponent implements OnInit {
     this.router.navigate(['user', i])
   }
   agregar(){
-    console.log(this.userToAdd)
-    this.usersService.addUser(this.userToAdd)
+    this.userToAdd.id = this.usersService.usuarios.length + 1;
+    let newUser : FullUser = (this.userToAdd)
+    this.usersService.addUser(newUser)
+    this.userToAdd = {id:0,name:"",username:"",email:"",phone:"",website:"",
+    address:{street:"",suite:"",city:"",zipcode:"",geo: { lat:"",lng:""},},
+    company:{catchPhrase:"",name:"",bs:""}
+    }
+    
   }
 
 }
