@@ -5,7 +5,7 @@
 </div>
 
 <div *ngIf='this.usersService.cargando' class="spinner">
-  <img src='../../../assets/spinner.gif' class="spinner-img"><br>
+  <img src='https://joelalbornoz.github.io/angular-project-joel-albornoz/assets/spinner.gif' class="spinner-img"><br>
   Cargando..
 </div>
 
@@ -20,10 +20,10 @@
     </div>
     <div class="row justify-content-center m-3">
       <div class="col-4">
-        <button class="btn btn-primary" style="width: 100%;" (click)='navegar(i)'>Detalle</button>
+        <button class="btn btn-primary"  (click)='navegar(i)'>Detalle</button>
       </div>
       <div class="col-4">
-        <button class="btn btn-danger" style="width: 100%;" (click)='delete(i)'>X</button>
+        <button class="btn btn-danger"  (click)='delete(i)'>X</button>
       </div>
     </div>
   </div>
